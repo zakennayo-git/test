@@ -68,7 +68,6 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
     width: 100%;
     @media @small {
         width: 100%;
-        padding: 20px;
     }
 }
 .topBanner {
@@ -201,7 +200,7 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
     @media @small {
         flex-direction: column;
         width: 100%;
-        padding: 100px 20px;
+        padding: 50px 20px;
         h1 {
             width: 100%;
         }
@@ -215,39 +214,38 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
 .offer {
     display: grid;
     background: @silverColor;
-    padding: 100px 0;
+    padding: 100px 0 20px;
     .offer-wrapper-card {
         display: flex;
         flex-direction: row;
-        background: white;
-        border-radius: 5px;
         overflow: hidden;
-        margin-top: 50px;
-        box-shadow: @shadow;
-        &:nth-child(1) {
-            .offer-wrapper-card-img {
-                background-image: url('../images/img11.jpg');
-            }
-        }
+        margin-bottom: 80px;
+        align-items: center;
         &:nth-child(2) {
-            .offer-wrapper-card-img {
-                background-image: url('../images/img15.jpg');
-            }
-        }
-        &:nth-child(3) {
-            .offer-wrapper-card-img {
-                background-image: url('../images/img9.jpg');
+            flex-direction: row-reverse;
+            .offer-wrapper-card-information {
+                padding-left: 0;
+                padding-right: 50px;
             }
         }
         .offer-wrapper-card-img {
-            width: 30%;
+            width: 40%;
             background-size: cover;
             background-repeat: no-repeat;
+            display: block;
+            overflow: hidden;
+            img {
+                width: 100%;
+                transition-duration: 1.5s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
         }
         .offer-wrapper-card-information {
-            width: 70%;
+            width: 60%;
             text-align: justify;
-            padding: 100px;
+            padding:  10px 0 10px 50px;
             h2 {
                 color: @baseColor;
                 font-size: 17px;
@@ -258,25 +256,25 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
                 font-size: 13px;
             }
         }
-        &:nth-child(2) {
-            flex-direction: row-reverse;
-        }
     }
     @media @small {
         width: 100%;
-        padding: 100px 10px;
+        padding: 50px 10px 40px;
         .offer-wrapper-card {
+            margin-bottom: 10px;
             flex-direction: column;
+            &:nth-child(2) {
+                flex-direction: column;
+                .offer-wrapper-card-information {
+                    padding: 20px 0;
+                }
+            }
             .offer-wrapper-card-img {
                 width: 100%;
-                height: 200px;
             }
             .offer-wrapper-card-information {
                 width: 100%;
-                padding: 20px;
-            }
-            &:nth-child(2) {
-                flex-direction: column;
+                padding: 20px 0;
             }
         }
     }
@@ -361,17 +359,18 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
                 background-size: 100% 100%;
             }
         }
-    }
     @media @small {
-        .realizationBanner-wrapper {
+            margin: 0;
             padding: 20px;
             flex-direction: column;
+            p {
+                width: 100%;
+            }
             a {
                 margin-top: 20px;
             }
         }
-    }
-
+}
 .partners {
     .partners-wrapper {
         margin-top: 100px;
@@ -404,12 +403,11 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
 }
 footer {
     margin-top: 100px;
-    background: @greyColor;
     width: 100%;
     color: white;
-    box-shadow: @shadow-2;
     .container-fluid {
         padding: 20px 0;
+        background: @greyColor;
         .footer-additional-info {
             display: flex;
             flex-direction: row;
@@ -457,10 +455,10 @@ footer {
             flex-direction: column;
             padding: 50px 100px;
             width: 45%;
-            justify-content: flex-end;
+            justify-content: center;
             position: relative;
-            z-index: inherit;
             align-items: flex-end;
+            box-shadow: @shadow;
             .footer-inner-wrapper {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -496,6 +494,7 @@ footer {
             }
         }
         .footer-wrapper-map {
+            padding-top: 80px;
             width: 55%;
             iframe {
                 width: 100%;
@@ -512,7 +511,8 @@ footer {
         text-align: center;
     }
     @media @small {
-        padding: 50px 20px;
+        padding: 0;
+        margin: 0;
         .container-fluid {
             .footer-additional-info {
                 flex-direction: column;
@@ -529,9 +529,11 @@ footer {
             .footer-wrapper-info {
                 padding: 20px;
                 width: 100%;
+                align-items: center;
             }
             .footer-wrapper-map {
                 width: 100%;
+                padding: 0;
             }
         }
     }
