@@ -12,12 +12,16 @@
 @phone: ~"only screen and (max-width: 940px)";
 @desktop: ~"only screen and (max-width: 1180px)";
 
+html {
+    scroll-behavior: smooth;
+}
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
+
 body {
     font-family: 'Cairo', sans-serif;
     background: @backgroundColor;
@@ -157,17 +161,78 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
                 .active {
                     font-weight: bold;
                 }
-                @media @small {
-                    display: none;
-                }
             }
     }
+    @media @small {
+        nav {
+            .nav-wrapper {
+                position: fixed;
+                flex-direction: column;
+                background: grey;
+                top: 0;
+                right: 0;
+                width: 90%;
+                height: 100%;
+                z-index: 99999;
+                justify-content: center;
+                li {
+                    padding: 5px 0 5px 30px;
+                    a {
+                        font-size: 18px;
+                        &:before {
+                        }
+                    }
+                }
+            }
+            .noactive {
+                display: none;
+            }
+        }
+    }
 }
+.smallNavigation {
+    display: none;
+    @media @small {
+        width: 35px;
+        position: fixed;
+        right: 20px;
+        z-index: 99999;
+        display: inline-block;
+        cursor: pointer;
+    }
+}
+.bar1, .bar2, .bar3 {
+    width: 35;
+    height: 5px;
+    background: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  .change .bar2 {opacity: 0;}
+
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
 .slider {
-    position: relative;
     width: 100%;
-    img {
+    overflow: hidden;
+    &__img {
         width: 100%;
+        position:relative;
+        animation: animate-right 8s;
+    }
+}
+@keyframes animate-right {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
     }
 }
 .aboutUs {
@@ -308,11 +373,11 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
             height: calc(100% - 10px);
             content: '';
             background: rgba(0,0,0,0.5);
+            transition-duration: 0.3s;
         }
         &:hover {
             &:before {
                 background: none;
-
             }
         }
     }
@@ -348,6 +413,7 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
             color: black;
             border: 1px solid black;
             position: relative;
+            transition-duration: 0.3s;
             &:before {
                 content: '';
                 position: absolute;
@@ -358,6 +424,13 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
                 background: url('../images/icons/right-arrow-black.svg');
                 background-size: 100% 100%;
             }
+            &:hover {
+                background: black;
+                color: white;
+                &:before {
+                    background-image: url('../images/icons/right-arrow.svg');
+                }
+            }
         }
     @media @small {
             margin: 0;
@@ -365,6 +438,7 @@ h1,h2,h3,h4,h5, .header-bottom, .footer-wrapper {
             flex-direction: column;
             p {
                 width: 100%;
+                text-align: center;
             }
             a {
                 margin-top: 20px;
@@ -424,6 +498,7 @@ footer {
                 padding: 5px 50px 5px 30px;
                 border: 1px solid white;
                 position: relative;
+                transition-duration: 0.3s;
                 &:before {
                     content: '';
                     position: absolute;
@@ -518,6 +593,7 @@ footer {
                 flex-direction: column;
                 p {
                     width: 100%;
+                    text-align: center;
                 }
                 a {
                     margin-top: 20px;

@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 *,
 *::before,
 *::after {
@@ -161,15 +164,75 @@ h5,
 }
 @media only screen and (max-width: 700px) {
   .navigation nav .nav-wrapper {
+    position: fixed;
+    flex-direction: column;
+    background: grey;
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 100%;
+    z-index: 99999;
+    justify-content: center;
+  }
+  .navigation nav .nav-wrapper li {
+    padding: 5px 0 5px 30px;
+  }
+  .navigation nav .nav-wrapper li a {
+    font-size: 18px;
+  }
+  .navigation nav .noactive {
     display: none;
   }
 }
-.slider {
-  position: relative;
-  width: 100%;
+.smallNavigation {
+  display: none;
 }
-.slider img {
+@media only screen and (max-width: 700px) {
+  .smallNavigation {
+    width: 35px;
+    position: fixed;
+    right: 20px;
+    z-index: 99999;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+.bar1,
+.bar2,
+.bar3 {
+  width: 35;
+  height: 5px;
+  background: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+.change .bar2 {
+  opacity: 0;
+}
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+.slider {
   width: 100%;
+  overflow: hidden;
+}
+.slider__img {
+  width: 100%;
+  position: relative;
+  animation: animate-right 8s;
+}
+@keyframes animate-right {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }
 .aboutUs {
   padding: 100px 0;
@@ -318,6 +381,7 @@ h5,
   height: calc(100% - 10px);
   content: '';
   background: rgba(0, 0, 0, 0.5);
+  transition-duration: 0.3s;
 }
 .gallery .gallery-one-2:hover:before,
 .gallery .gallery-one-3:hover:before,
@@ -360,6 +424,7 @@ h5,
   color: black;
   border: 1px solid black;
   position: relative;
+  transition-duration: 0.3s;
 }
 .realizationBanner a:before {
   content: '';
@@ -371,6 +436,13 @@ h5,
   background: url('../images/icons/right-arrow-black.svg');
   background-size: 100% 100%;
 }
+.realizationBanner a:hover {
+  background: black;
+  color: white;
+}
+.realizationBanner a:hover:before {
+  background-image: url('../images/icons/right-arrow.svg');
+}
 @media only screen and (max-width: 700px) {
   .realizationBanner {
     margin: 0;
@@ -379,6 +451,7 @@ h5,
   }
   .realizationBanner p {
     width: 100%;
+    text-align: center;
   }
   .realizationBanner a {
     margin-top: 20px;
@@ -440,6 +513,7 @@ footer .container-fluid .footer-additional-info a {
   padding: 5px 50px 5px 30px;
   border: 1px solid white;
   position: relative;
+  transition-duration: 0.3s;
 }
 footer .container-fluid .footer-additional-info a:before {
   content: '';
@@ -533,6 +607,7 @@ footer .copyrigh {
   }
   footer .container-fluid .footer-additional-info p {
     width: 100%;
+    text-align: center;
   }
   footer .container-fluid .footer-additional-info a {
     margin-top: 20px;
