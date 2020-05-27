@@ -166,19 +166,25 @@ h5,
   .navigation nav .nav-wrapper {
     position: fixed;
     flex-direction: column;
-    background: grey;
+    background: #232323;
     top: 0;
     right: 0;
     width: 90%;
     height: 100%;
     z-index: 99999;
     justify-content: center;
+    align-items: center;
   }
   .navigation nav .nav-wrapper li {
-    padding: 5px 0 5px 30px;
+    padding: 10px 0 10px 30px;
   }
   .navigation nav .nav-wrapper li a {
-    font-size: 18px;
+    font-size: 20px;
+    color: #f59915;
+    text-align: center;
+  }
+  .navigation nav .nav-wrapper li:first-child a:before {
+    display: none;
   }
   .navigation nav .noactive {
     display: none;
