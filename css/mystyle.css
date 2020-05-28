@@ -146,10 +146,6 @@ h5,
   text-transform: uppercase;
   position: relative;
 }
-.navigation nav .nav-wrapper li:hover a,
-.navigation nav .nav-wrapper li:first-child a {
-  font-weight: 700;
-}
 .navigation nav .nav-wrapper li:hover a:before,
 .navigation nav .nav-wrapper li:first-child a:before {
   content: '';
@@ -595,6 +591,7 @@ footer .footer-wrapper .footer-wrapper-map iframe {
   width: 100%;
   min-height: 400px;
   height: 100%;
+  border: none;
 }
 footer .copyrigh {
   padding: 10px 0;
